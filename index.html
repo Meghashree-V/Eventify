@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventify</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- LOGIN PAGE -->
+  <div id="loginPage">
+    <h2>Welcome to Eventify</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app" style="display: none;">
+    <header>
+      <h1>Eventify</h1>
+      <div class="nav-btns">
+        <button onclick="showHome()">Home</button>
+        <button onclick="showProfile()">Profile</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <!-- SEARCH & FILTER -->
+    <section id="homeSection">
+      <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search events..." oninput="renderEvents()" />
+        <select id="categoryFilter" onchange="renderEvents()">
+          <option value="all">All Categories</option>
+          <option value="Tech">Tech</option>
+          <option value="Music">Music</option>
+          <option value="Sports">Sports</option>
+        </select>
+      </div>
+      <div id="eventsContainer"></div>
+    </section>
+
+    <!-- EVENT DETAILS -->
+    <section id="eventDetailsSection" style="display: none;"></section>
+
+    <!-- USER PROFILE -->
+    <section id="profileSection" style="display: none;">
+      <h2>Your Profile</h2>
+      <input type="text" id="profileName" placeholder="Your name" />
+      <button onclick="saveProfile()">Save</button>
+      <h3>Events You're Going To</h3>
+      <ul id="upcomingEventsList"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
